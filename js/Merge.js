@@ -2,7 +2,7 @@ import { Draw, sortList } from "./utils.js";
 let margeSortGenerator;
 function* mergeSortMain(speed) {
     let i = 0, j, k = 2, l, m = [], s = [], n = 0, temp1, temp2, temp3, count = 0;
-    while (n < sortList.length) {
+    while (n < 2) {
         j = i + k / 2 - 1;
         l = i;
         temp1 = [];
@@ -56,6 +56,12 @@ function* mergeSortMain(speed) {
         }
         if (count++ % speed == 0) {
             yield;
+        }
+        if (n == 1) {
+            n = 2;
+        }
+        if (sortList.length <= k) {
+            n = 1;
         }
     }
 }

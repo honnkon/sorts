@@ -9,7 +9,7 @@ function Read(i: number): number {
 	return sortList[i];
 }
 
-function Draw(highLight: number = -1, subHighLight: number = -1): void {
+function Draw(highLight: number = -1, subHighLight: number = -1, sub: number = -1): void {
 	if (!cv) {
 		throw new Error('2d context not supported or canvas not found');
 	}
@@ -17,7 +17,7 @@ function Draw(highLight: number = -1, subHighLight: number = -1): void {
 	cv.clearRect(-10, -10, width + 10, height + 10);
 
 	for (let i: number = 0; i < sortList.length; i++) {
-		if (i == highLight || i == subHighLight) {
+		if (i == highLight || i == subHighLight || i == sub) {
 			cv.fillStyle = 'red';
 		} else {
 			cv.fillStyle = 'white';

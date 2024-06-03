@@ -14,7 +14,7 @@ function* mergeSortMain(speed: number) {
 		temp2: number[],
 		temp3: number[],
 		count: number = 0;
-	while (n < sortList.length) {
+	while (n < 2) {
 		j = i + k / 2 - 1;
 		l = i;
 		temp1 = [];
@@ -52,7 +52,6 @@ function* mergeSortMain(speed: number) {
 				yield [i, -1];
 			}
 		}
-
 		if (m[m.length - 1] == k) {
 			// @ts-ignore
 			i = s.pop();
@@ -64,8 +63,16 @@ function* mergeSortMain(speed: number) {
 			i = l + k;
 			k = 2;
 		}
+
 		if (count++ % speed == 0) {
 			yield;
+		}
+
+		if (n == 1) {
+			n = 2;
+		}
+		if (sortList.length <= k) {
+			n = 1;
 		}
 	}
 }
