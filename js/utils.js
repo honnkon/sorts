@@ -6,13 +6,13 @@ const height = canvas.height;
 function Read(i) {
     return sortList[i];
 }
-function Draw(highLight = -1, subHighLight = -1) {
+function Draw(highLight = -1, subHighLight = -1, sub = -1) {
     if (!cv) {
         throw new Error('2d context not supported or canvas not found');
     }
     cv.clearRect(-10, -10, width + 10, height + 10);
     for (let i = 0; i < sortList.length; i++) {
-        if (i == highLight || i == subHighLight) {
+        if (i == highLight || i == subHighLight || i == sub) {
             cv.fillStyle = 'red';
         }
         else {

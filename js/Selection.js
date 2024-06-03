@@ -2,20 +2,20 @@ import { Read, Swap, Draw, sortList } from "./utils.js";
 let selectionSortGenerator;
 function* selectionSortMain(speed) {
     let i = 0, j = 0, k, count = 0;
-    while (j < sortList.length) {
-        i = j;
-        k = j;
+    while (i < sortList.length) {
+        j = i;
+        k = i;
         while (k <= sortList.length) {
-            if (Read(k) < Read(i)) {
-                i = k;
+            if (Read(k) < Read(j)) {
+                j = k;
             }
             if (count++ % speed == 0) {
-                yield [i, k];
+                yield [j, k];
             }
             k++;
         }
         Swap(i, j);
-        j++;
+        i++;
         if (count++ % speed == 0) {
             yield;
         }
