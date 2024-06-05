@@ -1,3 +1,5 @@
+import {Shuffle} from './utils.js';
+
 import {SelectionSort} from './Selection.js';
 import {BubbleSort} from './Bubble.js';
 import {ShakerSort} from "./Shaker.js";
@@ -6,8 +8,8 @@ import {GnomeSort} from "./Gnome.js";
 import {MergeSort} from "./Merge.js";
 import {OddEvenSort} from "./Odd-Even.js";
 import {ExchangeSort} from "./Exchange.js";
-import {Shuffle} from './utils.js';
 import {DoubleSelectionSort} from "./DoubleSelection.js";
+import {CombSort} from "./Comb.js";
 
 const Length = document.getElementById('Length');
 const Speed = document.getElementById('Speed');
@@ -70,4 +72,10 @@ Buttons[8].addEventListener('click', () => {
 	Shuffle(Length.valueAsNumber);
 	// @ts-ignore
 	DoubleSelectionSort(Speed.valueAsNumber);
+})
+Buttons[9].addEventListener('click', () => {
+	// @ts-ignore
+	Shuffle(Length.valueAsNumber);
+	// @ts-ignore
+	CombSort(Speed.valueAsNumber);
 })

@@ -1,22 +1,23 @@
-import { Read, Swap, Draw, sortList } from "./utils.js";
+import { Draw, Read, sortList, Swap } from "./utils.js";
 let bubbleSortGenerator;
 function* bubbleSortMain(speed) {
-    let i = 0, j = 0, count = 0;
-    while (i < sortList.length) {
-        j = 0;
-        while (j <= sortList.length - i) {
-            if (Read(j) > Read(j + 1)) {
-                Swap(j, j + 1);
+    let i = 0, swapped = true, count = 0;
+    while (swapped) {
+        swapped = false;
+        i = 0;
+        while (i < sortList.length) {
+            if (Read(i) > Read(i + 1)) {
+                swapped = true;
+                Swap(i, i + 1);
             }
             if (count++ % speed == 0) {
-                yield j;
+                yield i;
             }
-            j++;
+            i++;
         }
         if (count++ % speed == 0) {
-            yield [i, j];
+            yield i;
         }
-        i++;
     }
 }
 function BubbleSort(IsStart) {

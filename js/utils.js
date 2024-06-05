@@ -10,14 +10,15 @@ function Draw(highLight = -1, subHighLight = -1, sub = -1) {
     if (!cv) {
         throw new Error('2d context not supported or canvas not found');
     }
+    if (subHighLight == -1) {
+        subHighLight = highLight;
+    }
+    if (sub == -1) {
+        sub = highLight;
+    }
     cv.clearRect(-10, -10, width + 10, height + 10);
     for (let i = 0; i < sortList.length; i++) {
-        if (i == highLight || i == subHighLight || i == sub) {
-            cv.fillStyle = 'red';
-        }
-        else {
-            cv.fillStyle = 'white';
-        }
+        cv.fillStyle = Near(i, highLight, sortList.length / 500) || Near(i, subHighLight, sortList.length / 500) || Near(i, sub, sortList.length / 500) ? 'red' : 'white';
         cv.fillRect(width * i / sortList.length, height - height * (sortList[i] + 1) / sortList.length, width / sortList.length, height * (sortList[i] + 1) / sortList.length);
     }
 }
@@ -40,5 +41,8 @@ function Shuffle(number) {
         sortList[i] = temp[j];
         temp.splice(j, 1);
     }
+}
+function Near(number, base, range) {
+    return Math.abs(number - base) <= range;
 }
 export { Draw, Read, Swap, Shuffle, sortList };
