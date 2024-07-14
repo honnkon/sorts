@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8" />
-    <title>ソート</title>
-    <link rel="icon" href="favicon.ico" />
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            color: white;
-        }
+	<meta charset="UTF-8"/>
+	<title>ソート</title>
+	<link rel="icon" href="favicon.ico"/>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: black;
+			color: white;
+		}
 
-        canvas {
-            display: block;
-            margin: 0 auto;
-            background-color: black;
-        }
-    </style>
+		canvas {
+			display: block;
+			margin: 0 auto;
+			background-color: black;
+			width: 80vw;
+			height: 80vh;
+		}
+	</style>
 </head>
 <body>
 <canvas id="main" width="1800" height="690"></canvas>
 <br/>
 <div id="Settings">
-    <label>sort length:<input id="Length" type="number" min="2" value="256"/></label>
-    <label>speed:<input id="Speed" type="number" min="1" value="4"/></label>
-    <br/>
-    <div id="sorts">
-        <button id="Selection">Selection sort</button>
-        <button id="Insertion">Insertion sort</button>
-        <button id="Gnome">Gnome sort</button>
-        <button id="Bubble">Bubble sort</button>
-        <button id="Merge">Merge sort</button>
-        <button id="Shaker">Shaker sort</button>
-        <button id="OddEven">Odd-Even sort</button>
-        <button id="Exchange">Exchange sort</button>
-        <button id="DSelection">Double Selection sort (broken)</button>
-        <button id="Comb">Comb sort</button>
-    </div>
+	<label>sort length:<input id="Length" type="number" min="2" value="256"/></label>
+	<label>speed:<input id="Speed" type="number" min="1" value="4"/></label>
+	<br/>
+	<div id="sorts">
+		<button id="Selection">Selection sort</button>
+		<button id="Insertion">Insertion sort</button>
+		<button id="Gnome">Gnome sort</button>
+		<button id="Bubble">Bubble sort</button>
+		<button id="Merge">Merge sort</button>
+		<button id="Shaker">Shaker sort</button>
+		<button id="OddEven">Odd-Even sort</button>
+		<button id="Exchange">Exchange sort</button>
+		<button id="DSelection">Double Selection sort (broken)</button>
+		<button id="Comb">Comb sort</button>
+	</div>
 </div>
 <script type="module" src="js/main.js"></script>
 </body>
